@@ -10,6 +10,7 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard\Factory;
 
 use InteractiveSolutions\Bernard\Options\BernardOptions;
+use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -20,8 +21,13 @@ class BernardOptionsFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator):BernardOptions
     {
+        return $this($serviceLocator);
+    }
+
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    {
         /* @var $config array */
-        $config = $serviceLocator->get('config');
+        $config = $container->get('config');
         $config = $config['interactive_solutions']['options'][BernardOptions::class] ?? [];
 
         return new BernardOptions($config);
