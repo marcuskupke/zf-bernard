@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard;
+namespace InteractiveSolutions\Bernard;
 
 use Zend\Loader\StandardAutoloader;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;

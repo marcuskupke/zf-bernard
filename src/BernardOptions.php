@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Options;
+namespace InteractiveSolutions\Bernard\Options;
 
 use Redis;
 

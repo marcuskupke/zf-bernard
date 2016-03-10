@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-use Is\Bernard\Controller\ConsoleController;
+use InteractiveSolutions\Bernard\Controller\ConsoleController;
 
 return [
     'console' => [

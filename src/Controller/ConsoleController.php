@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Controller;
+namespace InteractiveSolutions\Bernard\Controller;
 
 use Bernard\Consumer;
 use Bernard\QueueFactory;

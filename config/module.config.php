@@ -9,12 +9,12 @@ use Bernard\Consumer;
 use Bernard\Middleware\MiddlewareBuilder;
 use Bernard\QueueFactory\PersistentFactory;
 use Bernard\Serializer\SimpleSerializer;
-use Is\Bernard\Factory\ConsumerFactory;
-use Is\Bernard\Factory\PersistentFactoryFactory;
-use Is\Bernard\Factory\Router\ConsumerPluginManagerFactory;
-use Is\Bernard\Factory\Router\PluginManagerRouterFactory;
-use Is\Bernard\PluginManagerRouter;
-use Is\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Factory\ConsumerFactory;
+use InteractiveSolutions\Bernard\Factory\PersistentFactoryFactory;
+use InteractiveSolutions\Bernard\Factory\Router\ConsumerPluginManagerFactory;
+use InteractiveSolutions\Bernard\Factory\Router\PluginManagerRouterFactory;
+use InteractiveSolutions\Bernard\PluginManagerRouter;
+use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
 
 declare(strict_types = 1);
 

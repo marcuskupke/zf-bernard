@@ -7,11 +7,11 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory;
+namespace InteractiveSolutions\Bernard\Factory;
 
 use Bernard\Consumer;
 use Bernard\Middleware\MiddlewareBuilder;
-use Is\Bernard\PluginManagerRouter;
+use InteractiveSolutions\Bernard\PluginManagerRouter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

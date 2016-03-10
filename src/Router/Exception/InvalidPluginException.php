@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Router\Exception;
+namespace InteractiveSolutions\Bernard\Router\Exception;
 
 use LogicException;
 

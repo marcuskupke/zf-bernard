@@ -7,9 +7,9 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory;
+namespace InteractiveSolutions\Bernard\Factory;
 
-use Is\Bernard\Options\BernardOptions;
+use InteractiveSolutions\Bernard\Options\BernardOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

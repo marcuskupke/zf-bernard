@@ -7,11 +7,11 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory\Driver;
+namespace InteractiveSolutions\Bernard\Factory\Driver;
 
 use Redis;
 use Bernard\Driver\PhpRedisDriver;
-use Is\Bernard\Options\BernardOptions;
+use InteractiveSolutions\Bernard\Options\BernardOptions;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

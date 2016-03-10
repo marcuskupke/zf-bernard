@@ -7,11 +7,11 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard;
+namespace InteractiveSolutions\Bernard;
 
 use Bernard\Envelope;
 use Bernard\Router;
-use Is\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
 
 class PluginManagerRouter implements Router
 {

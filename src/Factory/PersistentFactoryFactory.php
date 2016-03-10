@@ -7,7 +7,7 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory;
+namespace InteractiveSolutions\Bernard\Factory;
 
 use Bernard\Driver;
 use Bernard\QueueFactory\PersistentFactory;

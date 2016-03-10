@@ -7,9 +7,9 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory\Router;
+namespace InteractiveSolutions\Bernard\Factory\Router;
 
-use Is\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

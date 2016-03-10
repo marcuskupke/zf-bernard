@@ -7,9 +7,9 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Router;
+namespace InteractiveSolutions\Bernard\Router;
 
-use Is\Bernard\Router\Exception\InvalidPluginException;
+use InteractiveSolutions\Bernard\Router\Exception\InvalidPluginException;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\Exception;
 

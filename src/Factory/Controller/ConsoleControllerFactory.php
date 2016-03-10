@@ -7,10 +7,10 @@
 
 declare(strict_types = 1);
 
-namespace Is\Bernard\Factory\Controller;
+namespace InteractiveSolutions\Bernard\Factory\Controller;
 
 use Bernard\Consumer;
-use Is\Bernard\Controller\ConsoleController;
+use InteractiveSolutions\Bernard\Controller\ConsoleController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
