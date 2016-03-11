@@ -13,7 +13,6 @@ use Bernard\Consumer;
 use Bernard\Message\DefaultMessage;
 use Bernard\Producer;
 use Bernard\QueueFactory;
-use Lifeory\Video\BackgroundTask\TranscodeVideoMessage;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
 /**
@@ -65,6 +64,6 @@ class ConsoleController extends AbstractConsoleController
         $name  = $this->getRequest()->getParam('name');
         $queue = $this->getRequest()->getParam('queue');
 
-        $this->producer->produce(new TranscodeVideoMessage(1), $queue);
+        $this->producer->produce(new DefaultMessage($name), $queue);
     }
 }
