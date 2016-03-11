@@ -5,6 +5,8 @@
  * @copyright Interactive Solutions
  */
 
+declare(strict_types = 1);
+
 use Bernard\Consumer;
 use Bernard\Middleware\MiddlewareBuilder;
 use Bernard\QueueFactory\PersistentFactory;
@@ -15,8 +17,6 @@ use InteractiveSolutions\Bernard\Factory\Router\ConsumerPluginManagerFactory;
 use InteractiveSolutions\Bernard\Factory\Router\PluginManagerRouterFactory;
 use InteractiveSolutions\Bernard\PluginManagerRouter;
 use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
-
-declare(strict_types = 1);
 
 return array_merge([
     'interactive_solutions' => [
