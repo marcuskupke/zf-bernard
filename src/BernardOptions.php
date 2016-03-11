@@ -7,8 +7,9 @@
 
 declare(strict_types = 1);
 
-namespace InteractiveSolutions\Bernard\Options;
+namespace InteractiveSolutions\Bernard;
 
+use Bernard\QueueFactory\PersistentFactory;
 use Redis;
 
 class BernardOptions
@@ -17,6 +18,27 @@ class BernardOptions
      * @var string
      */
     protected $redisInstanceKey = Redis::class;
+
+    /**
+     * @var string
+     */
+    protected $queueInstanceKey = PersistentFactory::class;
+
+    /**
+     * @return string
+     */
+    public function getQueueInstanceKey():string
+    {
+        return $this->queueInstanceKey;
+    }
+
+    /**
+     * @param string $queueInstanceKey
+     */
+    public function setQueueInstanceKey(string $queueInstanceKey)
+    {
+        $this->queueInstanceKey = $queueInstanceKey;
+    }
 
     /**
      * @return string

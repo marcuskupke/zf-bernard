@@ -7,25 +7,26 @@
 
 declare(strict_types = 1);
 
-namespace InteractiveSolutions\Bernard;
+namespace InteractiveSolutions\Bernard\Router;
 
 use Bernard\Envelope;
+use Bernard\Exception\ReceiverNotFoundException;
 use Bernard\Router;
-use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
 
 class PluginManagerRouter implements Router
 {
     /**
-     * @var ConsumerPluginManager
+     * @var ConsumerTaskManager
      */
     private $consumerPluginManager;
 
     /**
      * PluginManagerRouter constructor.
      *
-     * @param ConsumerPluginManager $consumerPluginManager
+     * @param ConsumerTaskManager $consumerPluginManager
      */
-    public function __construct(ConsumerPluginManager $consumerPluginManager)
+    public function __construct(ConsumerTaskManager $consumerPluginManager)
     {
         $this->consumerPluginManager = $consumerPluginManager;
     }
@@ -35,6 +36,10 @@ class PluginManagerRouter implements Router
      */
     public function map(Envelope $envelope)
     {
-        // TODO: Implement map() method.
+        if (!$this->consumerPluginManager->has($envelope->getName())) {
+            throw new ReceiverNotFoundException();
+        }
+
+        return $this->consumerPluginManager->get($envelope->getName());
     }
 }

@@ -9,7 +9,10 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Controller;
 
+use Bernard\Producer;
+use Bernard\Queue;
 use Bernard\Consumer;
+use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -21,8 +24,20 @@ class ConsoleControllerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator):ConsoleController
     {
-        $consumer = $serviceLocator->get(Consumer::class);
+        $sl = $serviceLocator->getServiceLocator();
 
-        return new ConsoleController($consumer);
+        /* @var $options BernardOptions */
+        $options = $sl->get(BernardOptions::class);
+
+        /* @var $consumer Consumer */
+        $consumer = $sl->get(Consumer::class);
+
+        /* @var $producer Producer */
+        $producer = $sl->get(Producer::class);
+
+        /* @var $queue Queue */
+        $queue = $sl->get($options->getQueueInstanceKey());
+
+        return new ConsoleController($producer, $consumer, $queue);
     }
 }

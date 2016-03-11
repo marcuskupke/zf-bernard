@@ -9,12 +9,12 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Router;
 
-use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ConsumerPluginManagerFactory implements FactoryInterface
+class ConsumerTaskManagerFactory implements FactoryInterface
 {
     /**
      * Create service
@@ -29,6 +29,6 @@ class ConsumerPluginManagerFactory implements FactoryInterface
         $config = $serviceLocator->get('config');
         $config = $config['interactive_solutions']['bernard_consumer_manager'];
 
-        return new ConsumerPluginManager(new Config($config));
+        return new ConsumerTaskManager(new Config($config));
     }
 }

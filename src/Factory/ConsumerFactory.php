@@ -11,7 +11,7 @@ namespace InteractiveSolutions\Bernard\Factory;
 
 use Bernard\Consumer;
 use Bernard\Middleware\MiddlewareBuilder;
-use InteractiveSolutions\Bernard\PluginManagerRouter;
+use InteractiveSolutions\Bernard\Router\PluginManagerRouter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

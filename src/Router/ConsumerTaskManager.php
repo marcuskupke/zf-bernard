@@ -13,7 +13,7 @@ use InteractiveSolutions\Bernard\Router\Exception\InvalidPluginException;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\Exception;
 
-class ConsumerPluginManager extends AbstractPluginManager
+class ConsumerTaskManager extends AbstractPluginManager
 {
     /**
      * {@inheritdoc]

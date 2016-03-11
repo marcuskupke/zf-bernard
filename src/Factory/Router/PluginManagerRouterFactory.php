@@ -9,8 +9,8 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Router;
 
-use InteractiveSolutions\Bernard\PluginManagerRouter;
-use InteractiveSolutions\Bernard\Router\ConsumerPluginManager;
+use InteractiveSolutions\Bernard\Router\PluginManagerRouter;
+use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -21,8 +21,8 @@ class PluginManagerRouterFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator):PluginManagerRouter
     {
-        /* @var $consumerPluginManager ConsumerPluginManager */
-        $consumerPluginManager = $serviceLocator->get(ConsumerPluginManager::class);
+        /* @var $consumerPluginManager ConsumerTaskManager */
+        $consumerPluginManager = $serviceLocator->get(ConsumerTaskManager::class);
 
         return new PluginManagerRouter($consumerPluginManager);
     }

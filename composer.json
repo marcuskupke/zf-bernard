@@ -1,0 +1,8 @@
+{
+    "name": "InteractiveSolutions/Bernard",
+    "homepage": "https://github.com/interactives-solutions/zf-bernard",
+    "require": {
+        "php": "^7.0.0",
+        "zendframework/zend-servicemanager": "^2.7.0 || ^3.0.0"
+    },
+}
