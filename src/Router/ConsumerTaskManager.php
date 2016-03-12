@@ -15,6 +15,8 @@ use Zend\ServiceManager\Exception;
 
 class ConsumerTaskManager extends AbstractPluginManager
 {
+    protected $autoAddInvokableClass = false;
+
     /**
      * {@inheritdoc]
      */
