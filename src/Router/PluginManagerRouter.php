@@ -37,7 +37,7 @@ class PluginManagerRouter implements Router
     public function map(Envelope $envelope)
     {
         if (!$this->consumerPluginManager->has($envelope->getName())) {
-            throw new ReceiverNotFoundException();
+            throw new ReceiverNotFoundException(sprintf('Could not find the received for %s ', $envelope->getName()));
         }
 
         return $this->consumerPluginManager->get($envelope->getName());
