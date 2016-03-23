@@ -1,5 +1,5 @@
 {
-    "name": "InteractiveSolutions/Bernard",
+    "name": "interactive-solutions/bernard",
     "homepage": "https://github.com/interactives-solutions/zf-bernard",
     "require": {
         "php": "^7.0.0",
