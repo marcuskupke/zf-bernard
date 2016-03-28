@@ -1,9 +1,18 @@
 {
-    "name": "interactive-solutions/zf-bernard",
-    "homepage": "https://github.com/interactives-solutions/zf-bernard",
-    "require": {
-        "php": "^7.0.0",
-        "zendframework/zend-servicemanager": "^2.7.0 || ^3.0.0",
-        "bernard/bernard": "^0.12.3"
-    }
+  "name": "interactive-solutions/zf-bernard",
+  "homepage": "https://github.com/interactives-solutions/zf-bernard",
+  "require": {
+    "php": "^7.0.0",
+    "zendframework/zend-servicemanager": "^2.7.0 || ^3.0.0",
+    "bernard/bernard": "^0.12.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "InteractiveSolutions\\Bernard\\": "src/"
+    },
+    "classmap": [
+      "./Module.php"
+    ]
+  }
 }
+
