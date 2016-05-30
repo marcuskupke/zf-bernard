@@ -19,10 +19,17 @@ abstract class AbstractExplicitMessage implements Message
     private $timestamp;
 
     /**
+     * @var string
+     */
+    protected $queue;
+
+    /**
      * @return int
      */
-    public function getTimestamp():int
+    public function getTimestamp(): int
     {
         return $this->timestamp;
     }
+
+    public abstract function getQueue(): string;
 }
