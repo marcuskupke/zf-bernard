@@ -48,4 +48,5 @@ final class Message extends AbstractExplicitMessage
 $producer->produce(new Message(...parameters));
 ```
 
-And you're done.
+Register the `SomeClass` under `bernard_consumer_manager` in the config
+and you're done.
