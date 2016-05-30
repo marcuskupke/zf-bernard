@@ -11,8 +11,8 @@ namespace InteractiveSolutions\Bernard\Controller;
 
 use Bernard\Consumer;
 use Bernard\Message\DefaultMessage;
-use Bernard\Producer;
 use Bernard\QueueFactory;
+use InteractiveSolutions\Bernard\Middleware\Producer;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
 /**

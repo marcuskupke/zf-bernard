@@ -10,9 +10,9 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard\Factory;
 
 use Bernard\Middleware\MiddlewareBuilder;
-use Bernard\Producer;
 use Bernard\Queue;
 use InteractiveSolutions\Bernard\BernardOptions;
+use InteractiveSolutions\Bernard\Middleware\Producer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;

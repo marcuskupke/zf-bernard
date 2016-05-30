@@ -9,11 +9,11 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Controller;
 
-use Bernard\Producer;
 use Bernard\Queue;
 use Bernard\Consumer;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
+use InteractiveSolutions\Bernard\Middleware\Producer;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
