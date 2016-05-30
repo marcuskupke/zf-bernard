@@ -29,6 +29,6 @@ class ConsumerTaskManagerFactory implements FactoryInterface
         $config = $serviceLocator->get('config');
         $config = $config['interactive_solutions']['bernard_consumer_manager'];
 
-        return new ConsumerTaskManager(new Config($config));
+        return new ConsumerTaskManager($serviceLocator, $config);
     }
 }

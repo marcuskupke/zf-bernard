@@ -58,12 +58,4 @@ class ConsoleController extends AbstractConsoleController
             'max-runtime' => $this->getRequest()->getParam('max-runtime'),
         ]);
     }
-
-    public function produceAction()
-    {
-        $name  = $this->getRequest()->getParam('name');
-        $queue = $this->getRequest()->getParam('queue');
-
-        $this->producer->produce(new DefaultMessage($name), $queue);
-    }
 }
