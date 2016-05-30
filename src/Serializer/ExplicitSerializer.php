@@ -50,13 +50,13 @@ class ExplicitSerializer implements Serializer
      */
     public function deserialize($serialized)
     {
-        $data = json_decode($serialized);
+        $data = json_decode($serialized, true);
 
-        $reflection = new ReflectionClass($data->class);
+        $reflection = new ReflectionClass($data['class']);
 
         $instance = $reflection->newInstanceWithoutConstructor();
 
-        foreach ($data->args as $key => $value) {
+        foreach ($data['args'] as $key => $value) {
             $property = $reflection->getProperty($key);
             $property->setAccessible(true);
             $property->setValue($instance, $value);
@@ -66,7 +66,7 @@ class ExplicitSerializer implements Serializer
 
         $property = $reflection->getProperty('timestamp');
         $property->setAccessible(true);
-        $property->setValue($instance, $data->timestamp);
+        $property->setValue($instance, $data['timestamp']);
 
         return new Envelope($instance);
     }
