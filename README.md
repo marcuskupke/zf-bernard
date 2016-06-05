@@ -2,6 +2,12 @@ ZF-Bernard
 ==========
 Provides zend framework 2 and zend-expressive integrations
 
+## Installing
+
+We support installation via composer
+
+```composer require interactive-solutions/zf-bernard```
+
 ## Add to the queue
 
 Create an object extending the `AbstractExplicitMessage` class and
