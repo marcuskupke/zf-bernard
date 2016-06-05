@@ -1,5 +1,8 @@
 ZF-Bernard
 ==========
+![Code Quality](https://scrutinizer-ci.com/g/interactive-solutions/zf-bernard/badges/quality-score.png?b=master)
+![Build status](https://scrutinizer-ci.com/g/interactive-solutions/zf-bernard/badges/build.png?b=master)
+
 Provides zend framework 2 and zend-expressive integrations
 
 ## Installing
