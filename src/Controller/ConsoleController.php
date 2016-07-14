@@ -10,9 +10,8 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard\Controller;
 
 use Bernard\Consumer;
-use Bernard\Message\DefaultMessage;
 use Bernard\QueueFactory;
-use InteractiveSolutions\Bernard\Middleware\Producer;
+use InteractiveSolutions\Bernard\Producer;
 use Zend\Mvc\Controller\AbstractConsoleController;
 
 /**
@@ -31,6 +30,7 @@ class ConsoleController extends AbstractConsoleController
      * @var Consumer
      */
     private $consumer;
+
     /**
      * @var Producer
      */

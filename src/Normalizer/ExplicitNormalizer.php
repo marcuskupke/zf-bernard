@@ -32,7 +32,7 @@ class ExplicitNormalizer implements NormalizerInterface, DenormalizerInterface
         $reflection = new ReflectionClass($class);
         $instance = $reflection->newInstanceWithoutConstructor();
 
-        foreach ($data['args'] as $key => $value) {
+        foreach ($data as $key => $value) {
             $property = $reflection->getProperty($key);
             $property->setAccessible(true);
             $property->setValue($instance, $value);

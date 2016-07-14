@@ -41,7 +41,6 @@ return array_merge([
     'service_manager' => [
         'aliases' => [
             Bernard\Driver::class     => PhpRedisDriver::class,
-            Bernard\Serializer::class => ExplicitNormalizer::class,
         ],
 
         'invokables' => [

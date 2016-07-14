@@ -13,7 +13,7 @@ use Bernard\Consumer;
 use Bernard\QueueFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
-use InteractiveSolutions\Bernard\Middleware\Producer;
+use InteractiveSolutions\Bernard\Producer;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
