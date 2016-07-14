@@ -9,6 +9,8 @@ declare(strict_types = 1);
 
 use Bernard\Consumer;
 use Bernard\Driver\PhpRedisDriver;
+use Bernard\Normalizer\DefaultMessageNormalizer;
+use Bernard\Normalizer\EnvelopeNormalizer;
 use Bernard\QueueFactory\PersistentFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
@@ -41,8 +43,11 @@ return array_merge([
         ],
 
         'invokables' => [
-            ExplicitNormalizer::class       => ExplicitNormalizer::class,
             EventDispatcherInterface::class => EventDispatcher::class,
+
+            ExplicitNormalizer::class       => ExplicitNormalizer::class,
+            EnvelopeNormalizer::class       => EnvelopeNormalizer::class,
+            DefaultMessageNormalizer::class => DefaultMessageNormalizer::class,
         ],
 
         'factories' => [

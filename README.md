@@ -13,7 +13,13 @@ We support installation via composer
 
 ## Normalizers
 
-You can add any normalizer that you which to use by adding it to the `BernardOptions::enabledNormalizers`, we default to our own `ExplicitNormalizer`
+You can add any normalizer that you which to use by adding it to the `BernardOptions::enabledNormalizers`
+
+The default enabled normalizers are
+
+* `Bernard\Normalizer\DefaultMessageNormalizer`
+* `Bernard\Normalider\EnvelopeNormalizer`
+* `InteractiveSolutions\Bernard\Normalizer\ExplicitNormalizer`
 
 ## Add to the queue
 
