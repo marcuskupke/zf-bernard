@@ -10,28 +10,27 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard\Factory;
 
 use Bernard\Consumer;
-use Bernard\Middleware\MiddlewareBuilder;
+use InteractiveSolutions\Bernard\EventDispatcherInterface;
 use InteractiveSolutions\Bernard\Router\PluginManagerRouter;
-use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ConsumerFactory implements FactoryInterface
+class ConsumerFactory
 {
     /**
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
      *
-     * @return mixed
+     * @return Consumer
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ServiceLocatorInterface $serviceLocator): Consumer
     {
         /* @var $router PluginManagerRouter */
         $router = $serviceLocator->get(PluginManagerRouter::class);
 
-        /* @var $middleware MiddlewareBuilder */
-        $middleware = $serviceLocator->get(MiddlewareBuilder::class);
+        /* @var $dispatcher EventDispatcherInterface */
+        $dispatcher = $serviceLocator->get(EventDispatcherInterface::class);
 
-        return new Consumer($router, $middleware);
+        return new Consumer($router, $dispatcher);
     }
 }

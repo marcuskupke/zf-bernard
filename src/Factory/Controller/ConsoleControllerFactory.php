@@ -9,8 +9,8 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Controller;
 
-use Bernard\Queue;
 use Bernard\Consumer;
+use Bernard\QueueFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
 use InteractiveSolutions\Bernard\Middleware\Producer;
@@ -35,7 +35,7 @@ class ConsoleControllerFactory implements FactoryInterface
         /* @var $producer Producer */
         $producer = $sl->get(Producer::class);
 
-        /* @var $queue Queue */
+        /* @var $queue QueueFactory */
         $queue = $sl->get($options->getQueueInstanceKey());
 
         return new ConsoleController($producer, $consumer, $queue);

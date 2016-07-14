@@ -12,21 +12,30 @@ namespace InteractiveSolutions\Bernard\Factory;
 use Bernard\Driver;
 use Bernard\QueueFactory\PersistentFactory;
 use Bernard\Serializer;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use InteractiveSolutions\Bernard\BernardOptions;
+use Interop\Container\ContainerInterface;
+use Normalt\Normalizer\AggregateNormalizer;
 
-class PersistentFactoryFactory implements FactoryInterface
+class PersistentFactoryFactory
 {
     /**
      * {@inheritdoc}
      */
-    public function createService(ServiceLocatorInterface $serviceLocator):PersistentFactory
+    public function __invoke(ContainerInterface $container): PersistentFactory
     {
         /* @var $driver Driver */
-        $driver = $serviceLocator->get(Driver::class);
+        $driver = $container->get(Driver::class);
 
-        /* @var $serializer Serializer */
-        $serializer = $serviceLocator->get(Serializer::class);
+        /* @var $options BernardOptions */
+        $options = $container->get(BernardOptions::class);
+
+        $normalizers = [];
+
+        foreach ($options->getEnabledNormalizers() as $normalizer) {
+            $normalizers[] = $container->get($normalizer);
+        }
+
+        $serializer = new Serializer(new AggregateNormalizer($normalizers));
 
         return new PersistentFactory($driver, $serializer);
     }

@@ -9,45 +9,25 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory;
 
-use Bernard\Middleware\MiddlewareBuilder;
-use Bernard\Queue;
+use Bernard\QueueFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
-use InteractiveSolutions\Bernard\Middleware\Producer;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use InteractiveSolutions\Bernard\EventDispatcherInterface;
+use InteractiveSolutions\Bernard\Producer;
+use Interop\Container\ContainerInterface;
 
-class ProducerFactory implements FactoryInterface
+class ProducerFactory
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator):Producer
-    {
-        return $this->build($serviceLocator);
-    }
-
-    public function __invoke(ContainerInterface $container):Producer
-    {
-        return $this->build($container);
-    }
-
-    /**
-     * @param ServiceLocatorInterface|ContainerInterface $container
-     *
-     * @return Producer
-     */
-    private function build($container):Producer
+    public function __invoke(ContainerInterface $container): Producer
     {
         /* @var $options BernardOptions */
         $options = $container->get(BernardOptions::class);
 
-        /* @var $queue Queue */
+        /* @var $queue QueueFactory */
         $queue = $container->get($options->getQueueInstanceKey());
 
-        /* @var $middleware MiddlewareBuilder */
-        $middleware = $container->get(MiddlewareBuilder::class);
+        /* @var $dispatcher EventDispatcherInterface */
+        $dispatcher = $container->get(EventDispatcherInterface::class);
 
-        return new Producer($queue, $middleware);
+        return new Producer($queue, $dispatcher);
     }
 }

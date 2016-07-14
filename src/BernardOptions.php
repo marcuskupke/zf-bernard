@@ -10,9 +10,12 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard;
 
 use Bernard\QueueFactory\PersistentFactory;
+use Doctrine\Common\Persistence\ObjectManager;
+use InteractiveSolutions\Bernard\Normalizer\ExplicitNormalizer;
 use Redis;
+use Zend\Stdlib\AbstractOptions;
 
-class BernardOptions
+class BernardOptions extends AbstractOptions
 {
     /**
      * @var string
@@ -23,6 +26,35 @@ class BernardOptions
      * @var string
      */
     protected $queueInstanceKey = PersistentFactory::class;
+
+    /**
+     * @var string
+     */
+    protected $objectManagerInstanceKey = ObjectManager::class;
+
+    /**
+     * @var array
+     */
+    protected $enabledNormalizers = [
+        ExplicitNormalizer::class
+    ];
+
+    /**
+     * @return array
+     */
+    public function getEnabledNormalizers(): array
+    {
+        return $this->enabledNormalizers;
+    }
+
+    /**
+     * @param array $enabledNormalizers
+     */
+    public function setEnabledNormalizers(array $enabledNormalizers)
+    {
+        $this->enabledNormalizers = $enabledNormalizers;
+    }
+
 
     /**
      * @return string
@@ -54,5 +86,21 @@ class BernardOptions
     public function setRedisInstanceKey(string $redisInstanceKey)
     {
         $this->redisInstanceKey = $redisInstanceKey;
+    }
+
+    /**
+     * @return string
+     */
+    public function getObjectManagerInstanceKey(): string
+    {
+        return $this->objectManagerInstanceKey;
+    }
+
+    /**
+     * @param string $objectManagerInstanceKey
+     */
+    public function setObjectManagerInstanceKey(string $objectManagerInstanceKey)
+    {
+        $this->objectManagerInstanceKey = $objectManagerInstanceKey;
     }
 }
