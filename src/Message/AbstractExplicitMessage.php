@@ -13,5 +13,5 @@ use Bernard\Message;
 
 abstract class AbstractExplicitMessage implements Message
 {
-    public abstract function getQueue(): string;
+    abstract public function getQueue(): string;
 }
