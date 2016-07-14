@@ -13,7 +13,7 @@ We support installation via composer
 
 ## Normalizers
 
-You can add any normalizer that you which to use by adding it to the `BernardOptions::enabledNormalizers`
+You can add any normalizer that you wish to use by adding it to the `BernardOptions::enabledNormalizers`
 
 The default enabled normalizers are
 
