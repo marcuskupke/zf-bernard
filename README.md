@@ -7,7 +7,7 @@ Provides zend framework 2, 3 and zend-expressive integrations
 
 ## Installing
 
-We support installation via composer
+We support installation via composer, note for now you need to set the minimum stability to alpha to install
 
 `composer require interactive-solutions/zf-bernard`
 
