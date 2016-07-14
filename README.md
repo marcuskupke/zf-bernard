@@ -11,6 +11,10 @@ We support installation via composer
 
 ```composer require interactive-solutions/zf-bernard```
 
+## Normalizers
+
+You can add any normalizer that you which to use by adding it to the `BernardOptions::enabledNormalizers`, we default to our own `ExplicitNormalizer`
+
 ## Add to the queue
 
 Create an object extending the `AbstractExplicitMessage` class and
