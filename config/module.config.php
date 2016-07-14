@@ -15,10 +15,12 @@ use Bernard\QueueFactory\PersistentFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
 use InteractiveSolutions\Bernard\EventDispatcherInterface;
+use InteractiveSolutions\Bernard\Events\ClearObjectManager;
 use InteractiveSolutions\Bernard\Factory\BernardOptionsFactory;
 use InteractiveSolutions\Bernard\Factory\ConsumerFactory;
 use InteractiveSolutions\Bernard\Factory\Controller\ConsoleControllerFactory;
 use InteractiveSolutions\Bernard\Factory\Driver\PhpRedisDriverFactory;
+use InteractiveSolutions\Bernard\Factory\Events\ClearObjectManagerFactory;
 use InteractiveSolutions\Bernard\Factory\PersistentFactoryFactory;
 use InteractiveSolutions\Bernard\Factory\ProducerFactory;
 use InteractiveSolutions\Bernard\Factory\Router\ConsumerTaskManagerFactory;
@@ -60,6 +62,8 @@ return array_merge([
 
             BernardOptions::class    => BernardOptionsFactory::class,
             PersistentFactory::class => PersistentFactoryFactory::class,
+
+            ClearObjectManager::class => ClearObjectManagerFactory::class
         ],
     ],
 
