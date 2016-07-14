@@ -5,12 +5,9 @@
  * @copyright Interactive Solutions
  */
 
-use Doctrine\Common\Persistence\ObjectManager;
-
 declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Events;
-
 
 use Doctrine\Common\Persistence\ObjectManager;
 use InteractiveSolutions\Bernard\BernardOptions;
