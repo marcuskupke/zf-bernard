@@ -69,3 +69,29 @@ $producer->produce(new Message(...parameters));
 
 Register the `SomeClass` under `bernard_consumer_manager` in the config
 and you're done.
+
+## Hooking into the event manager using a delegate factory
+
+This delegate factory supports both zend framework service manager 2 & 3, read more about it [here](
+ https://zendframework.github.io/zend-servicemanager/migration/#factories) 
+ 
+ 
+Example of introducing the ClearObjectManager event listener
+```
+final class EventDispatcherDelegateFactory implements DelegatorFactoryInterface
+{
+    public function __invoke(ContainerInterface $container, $requestedName, callable $callback, array $options = null)
+    {
+        /* @var $dispatcher EventDispatcherInterface */
+        $dispatcher = $callback();
+        $dispatcher->addListener(BernardEvents::ACKNOWLEDGE, $container->get(ClearObjectManager::class));
+
+        return $dispatcher;
+    }
+
+    public function createDelegatorWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName, $callback)
+    {
+        return $this($serviceLocator, $requestedName, $callback);
+    }
+}
+```
