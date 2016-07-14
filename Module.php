@@ -18,7 +18,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface
     /**
      * @inheritDoc
      */
-    public function getAutoloaderConfig():array
+    public function getAutoloaderConfig(): array
     {
         return [
             StandardAutoloader::class => [
@@ -32,7 +32,7 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface
     /**
      * @inheritDoc
      */
-    public function getConfig():array
+    public function getConfig(): array
     {
         return include __DIR__ . '/config/module.config.php';
     }
