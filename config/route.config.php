@@ -15,20 +15,10 @@ return [
             'routes' => [
                 'bernard-consume' => [
                     'options' => [
-                        'route'    => 'bernard consume [--max-runtime=] <queue>',
+                        'route'    => 'interactive-solutions:bernard:consume [--max-runtime=] <queue>',
                         'defaults' => [
                             'controller' => ConsoleController::class,
                             'action'     => 'consume',
-                        ],
-                    ],
-                ],
-
-                'bernard-produce' => [
-                    'options' => [
-                        'route'    => 'bernard produce <name> <queue>',
-                        'defaults' => [
-                            'controller' => ConsoleController::class,
-                            'action'     => 'produce',
                         ],
                     ],
                 ],
