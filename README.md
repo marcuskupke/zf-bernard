@@ -9,7 +9,7 @@ Provides zend framework 2, 3 and zend-expressive integrations
 
 We support installation via composer
 
-```composer require interactive-solutions/zf-bernard```
+`composer require interactive-solutions/zf-bernard`
 
 ## Normalizers
 
@@ -77,7 +77,7 @@ This delegate factory supports both zend framework service manager 2 & 3, read m
  
  
 Example of introducing the ClearObjectManager event listener
-```
+```php
 final class EventDispatcherDelegateFactory implements DelegatorFactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, callable $callback, array $options = null)
