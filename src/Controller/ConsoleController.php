@@ -55,7 +55,10 @@ class ConsoleController extends AbstractConsoleController
         $queue = $this->queues->create($this->getRequest()->getParam('queue'));
 
         $this->consumer->consume($queue, [
-            'max-runtime' => $this->getRequest()->getParam('max-runtime'),
+            'max-runtime'     => $this->getRequest()->getParam('max-runtime', PHP_INT_MAX),
+            'stop-on-error'   => $this->getRequest()->getParam('stop-on-failure', false),
+            'max-messages'    => $this->getRequest()->getParam('max-messages', null),
+            'stop-when-empty' => $this->getRequest()->getParam('stop-when-empty', false)
         ]);
     }
 }

@@ -15,7 +15,7 @@ return [
             'routes' => [
                 'bernard-consume' => [
                     'options' => [
-                        'route'    => 'interactive-solutions:bernard:consume [--max-runtime=] <queue>',
+                        'route'    => 'interactive-solutions:bernard:consume [--max-runtime=] [--stop-on-failure] [--stop-when-empty] [--max-messages=] <queue>',
                         'defaults' => [
                             'controller' => ConsoleController::class,
                             'action'     => 'consume',
