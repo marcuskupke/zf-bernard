@@ -11,6 +11,20 @@ We support installation via composer, note for now you need to set the minimum s
 
 `composer require interactive-solutions/zf-bernard`
 
+## Usage
+
+To consume a queue:
+
+```bash
+$ php public/index interactive-solutions:bernard:consume <queueName>
+```
+
+You can also pass the following options:
+- `--max-runtime=<VALUE>`: This will make the consumer shutdown after `<VALUE>` seconds. PHP_INT_MAX by default
+- `--stop-on-failure`: This will make the consumer halt on unhandled exceptions. Off by default
+- `--max-messages=<VALUE>`: This will make the consumer shutdown after `<VALUE>` messages are ran. Infinite by default
+- `--stop-on-empty`: This will make the consumer run all the queued messages and then shutdown. Off by default
+
 ## Normalizers
 
 You can add any normalizer that you wish to use by adding it to the `BernardOptions::enabledNormalizers`
