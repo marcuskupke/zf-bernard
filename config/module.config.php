@@ -21,6 +21,7 @@ use InteractiveSolutions\Bernard\Factory\ConsumerFactory;
 use InteractiveSolutions\Bernard\Factory\Controller\ConsoleControllerFactory;
 use InteractiveSolutions\Bernard\Factory\Driver\PhpRedisDriverFactory;
 use InteractiveSolutions\Bernard\Factory\Events\ClearObjectManagerFactory;
+use InteractiveSolutions\Bernard\Factory\Events\LogExceptionSubscriberFactory;
 use InteractiveSolutions\Bernard\Factory\PersistentFactoryFactory;
 use InteractiveSolutions\Bernard\Factory\ProducerFactory;
 use InteractiveSolutions\Bernard\Factory\Router\ConsumerTaskManagerFactory;
@@ -62,7 +63,9 @@ return array_merge([
             BernardOptions::class    => BernardOptionsFactory::class,
             PersistentFactory::class => PersistentFactoryFactory::class,
 
-            ClearObjectManager::class => ClearObjectManagerFactory::class
+            ClearObjectManager::class => ClearObjectManagerFactory::class,
+
+            LogExceptionSubscriberFactory::class => LogExceptionSubscriberFactory::class
         ],
     ],
 
