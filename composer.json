@@ -4,7 +4,7 @@
   "license": "MIT",
   "require": {
     "php": "^7.0.0",
-    "bernard/bernard": "1.0.0-alpha3"
+    "bernard/bernard": "1.0.0-alpha6"
   },
   "autoload": {
     "psr-4": {
