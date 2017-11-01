@@ -12,8 +12,9 @@ namespace InteractiveSolutions\Bernard\Events;
 use Bernard\BernardEvents;
 use Bernard\Event\EnvelopeEvent;
 use InteractiveSolutions\Bernard\Message\AbstractExplicitMessage;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class NewrelicBackgroundTransaction
+class NewrelicBackgroundTransaction implements EventSubscriberInterface
 {
 
     public function begin(EnvelopeEvent $event)
