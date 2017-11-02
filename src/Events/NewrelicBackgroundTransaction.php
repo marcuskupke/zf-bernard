@@ -17,19 +17,15 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class NewrelicBackgroundTransaction implements EventSubscriberInterface
 {
-
     public function begin(EnvelopeEvent $event)
     {
         if (!function_exists('newrelic_start_transaction')) {
             return;
         }
 
-        $message = $event->getEnvelope()->getMessage();
-        if ($message instanceof AbstractExplicitMessage) {
-            newrelic_start_transaction($message->getName());
-        }  else {
-            newrelic_start_transaction($event->getEnvelope()->getName());
-        }
+        newrelic_start_transaction(ini_get('newrelic.appname'));
+        newrelic_background_job(true);
+        newrelic_name_transaction($event->getEnvelope()->getName());
     }
 
     /**
@@ -51,18 +47,12 @@ class NewrelicBackgroundTransaction implements EventSubscriberInterface
      */
     public function reject(RejectEnvelopeEvent $event)
     {
-        if (!function_exists('newrelic_end_transaction'))  {
+        if (!function_exists('newrelic_end_transaction')) {
             return;
         }
 
-        $message = $event->getEnvelope()->getMessage();
-        if ($message instanceof AbstractExplicitMessage) {
-            newrelic_notice_error($message->getName(), $event->getException());
-            newrelic_end_transaction();
-        } else {
-            newrelic_notice_error($message->getName());
-            newrelic_end_transaction();
-        }
+        newrelic_notice_error($event->getEnvelope()->getName(), $event->getException());
+        newrelic_end_transaction();
     }
 
     /**
@@ -71,9 +61,9 @@ class NewrelicBackgroundTransaction implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            BernardEvents::INVOKE => ['begin'],
+            BernardEvents::INVOKE      => ['begin'],
             BernardEvents::ACKNOWLEDGE => ['acknowledge'],
-            BernardEvents::REJECT => ['reject']
+            BernardEvents::REJECT      => ['reject'],
         ];
     }
 }
