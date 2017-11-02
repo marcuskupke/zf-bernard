@@ -9,8 +9,8 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard;
 
-use Bernard\Normalizer\DefaultMessageNormalizer;
 use Bernard\Normalizer\EnvelopeNormalizer;
+use Bernard\Normalizer\PlainMessageNormalizer;
 use Bernard\QueueFactory\PersistentFactory;
 use Doctrine\Common\Persistence\ObjectManager;
 use InteractiveSolutions\Bernard\Normalizer\ExplicitNormalizer;
@@ -40,7 +40,7 @@ class BernardOptions extends AbstractOptions
     protected $enabledNormalizers = [
         EnvelopeNormalizer::class,
         ExplicitNormalizer::class,
-        DefaultMessageNormalizer::class
+        PlainMessageNormalizer::class
     ];
 
     /**

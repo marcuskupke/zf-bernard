@@ -5,12 +5,12 @@
  * @copyright Interactive Solutions
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 use Bernard\Consumer;
 use Bernard\Driver\PhpRedisDriver;
-use Bernard\Normalizer\DefaultMessageNormalizer;
 use Bernard\Normalizer\EnvelopeNormalizer;
+use Bernard\Normalizer\PlainMessageNormalizer;
 use Bernard\QueueFactory\PersistentFactory;
 use InteractiveSolutions\Bernard\BernardOptions;
 use InteractiveSolutions\Bernard\Controller\ConsoleController;
@@ -32,7 +32,7 @@ use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
 use InteractiveSolutions\Bernard\Router\PluginManagerRouter;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
-return array_merge([
+return [
     'interactive_solutions' => [
         'bernard_consumer_manager' => [
 
@@ -41,15 +41,15 @@ return array_merge([
 
     'service_manager' => [
         'aliases' => [
-            Bernard\Driver::class     => PhpRedisDriver::class,
+            Bernard\Driver::class => PhpRedisDriver::class,
         ],
 
         'invokables' => [
             EventDispatcherInterface::class => EventDispatcher::class,
 
-            ExplicitNormalizer::class       => ExplicitNormalizer::class,
-            EnvelopeNormalizer::class       => EnvelopeNormalizer::class,
-            DefaultMessageNormalizer::class => DefaultMessageNormalizer::class,
+            ExplicitNormalizer::class     => ExplicitNormalizer::class,
+            EnvelopeNormalizer::class     => EnvelopeNormalizer::class,
+            PlainMessageNormalizer::class => PlainMessageNormalizer::class,
         ],
 
         'factories' => [
@@ -65,7 +65,7 @@ return array_merge([
 
             ClearObjectManager::class => ClearObjectManagerFactory::class,
 
-            LogExceptionSubscriberFactory::class => LogExceptionSubscriberFactory::class
+            LogExceptionSubscriberFactory::class => LogExceptionSubscriberFactory::class,
         ],
     ],
 
@@ -75,4 +75,5 @@ return array_merge([
         ],
     ],
 
-], include __DIR__ . '/route.config.php');
+    'console' => include __DIR__ . '/route.config.php',
+];
