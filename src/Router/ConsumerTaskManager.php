@@ -20,7 +20,7 @@ class ConsumerTaskManager extends AbstractPluginManager
     /**
      * {@inheritdoc]
      */
-    public function validatePlugin($plugin)
+    public function validate($plugin)
     {
         if (!is_callable($plugin)) {
             throw new InvalidPluginException(sprintf(

@@ -10,25 +10,24 @@ declare(strict_types = 1);
 namespace InteractiveSolutions\Bernard\Factory\Router;
 
 use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
-use Zend\ServiceManager\Config;
-use Zend\ServiceManager\FactoryInterface;
+use Psr\Container\ContainerInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ConsumerTaskManagerFactory implements FactoryInterface
+final class ConsumerTaskManagerFactory
 {
     /**
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
      *
-     * @return mixed
+     * @return ConsumerTaskManager
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container): ConsumerTaskManager
     {
         /* @var $config array */
-        $config = $serviceLocator->get('config');
+        $config = $container->get('config');
         $config = $config['interactive_solutions']['bernard_consumer_manager'];
 
-        return new ConsumerTaskManager($serviceLocator, $config);
+        return new ConsumerTaskManager($container, $config);
     }
 }

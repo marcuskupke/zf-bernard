@@ -5,21 +5,22 @@
  * @copyright Interactive Solutions
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace InteractiveSolutions\Bernard\Factory\Router;
 
 use InteractiveSolutions\Bernard\Router\PluginManagerRouter;
 use InteractiveSolutions\Bernard\Router\ConsumerTaskManager;
+use Psr\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PluginManagerRouterFactory implements FactoryInterface
+final class PluginManagerRouterFactory
 {
     /**
      * {@inheritdoc}
      */
-    public function createService(ServiceLocatorInterface $serviceLocator):PluginManagerRouter
+    public function __invoke(ContainerInterface $serviceLocator): PluginManagerRouter
     {
         /* @var $consumerPluginManager ConsumerTaskManager */
         $consumerPluginManager = $serviceLocator->get(ConsumerTaskManager::class);
