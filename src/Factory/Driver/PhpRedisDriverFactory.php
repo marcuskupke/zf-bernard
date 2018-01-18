@@ -9,14 +9,13 @@ declare(strict_types = 1);
 
 namespace InteractiveSolutions\Bernard\Factory\Driver;
 
-use Interop\Container\ContainerInterface;
-use Redis;
 use Bernard\Driver\PhpRedisDriver;
 use InteractiveSolutions\Bernard\BernardOptions;
-use Zend\ServiceManager\FactoryInterface;
+use Interop\Container\ContainerInterface;
+use Redis;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PhpRedisDriverFactory implements FactoryInterface
+class PhpRedisDriverFactory
 {
     /**
      * {@inheritdoc}
