@@ -3,7 +3,7 @@
   "homepage": "https://github.com/interactives-solutions/zf-bernard",
   "license": "MIT",
   "require": {
-    "php": "^7.0.0",
+    "php": "^7.0 || ^8.0",
     "bernard/bernard": "1.0.0-alpha9"
   },
   "autoload": {
@@ -15,3 +15,4 @@
     ]
   }
 }
+l
