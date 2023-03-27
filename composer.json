@@ -4,13 +4,14 @@
   "license": "MIT",
   "repositories": [
         {
+            "name": "marcuskupke/bernard",
             "type": "vcs",
             "url": "https://github.com/marcuskupke/bernard"
         }
   ],    
   "require": {
     "php": "^7.0 || ^8.0",
-    "bernard/bernard": "1.0.1"
+    "marcuskupke/bernard": "1.0.1"
   },
   "autoload": {
     "psr-4": {
