@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^7.0 || ^8.0",
-        "wpkit/bernard": "1.0.1"
+        "marcuskupke/bernard": "1.0.2"
     },
     "autoload": {
         "psr-4": {
